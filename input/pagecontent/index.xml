@@ -1,0 +1,21 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <!-- The spaces between the open and close "a" tag are mandatory.  (Cuz HTML renderers are dumb...) -->
+  <a name="intro"> </a>
+  <h3>Introduction</h3>
+	<p>
+    An example content implementation guide that illustrates a CPG-on-FHIR approach to
+    knowledge engineering applied to Colorectal Cancer.
+  </p>
+  <p>
+    The concepts in this implementation are extracted from the FHIR translation of the
+    currently published Colorectal Cancer Screening electronic Clinical Quality Measure (eCQM),
+    CMS-130. The concepts were abstracted and expressed using CPG-on-FHIR profiles and
+    approaches, with the goal of illustrating how shareable libraries of clinical knowledge
+    can be used in various domains including quality measurement, decision support, case-reporting,
+    and others.
+  </p>
+  <a name="contents"> </a>
+  <h3>Contents</h3>
+  <p>
+  </p>
+</div>

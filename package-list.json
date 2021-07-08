@@ -1,0 +1,13 @@
+{
+ "package-id" : "cqf.fhir.ccc",
+ "title" : "Colorectal Cancer Data Elements",
+ "canonical" : "http://fhir.org/guides/cqf/ccc",
+ "introduction" : "An example content implementation guide that illustrates a CPG-on-FHIR approach to knowledge engineering applied to Colorectal Cancer.",
+ "list" : [{
+  "version" : "current",
+  "desc" : "Continuous Integration Build (latest in version control)",
+  "path" : "http://build.fhir.org/ig/cqframework/cqf-ccc",
+  "status" : "ci-build",
+  "current" : true
+ }]
+}
