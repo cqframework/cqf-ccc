@@ -1,11 +1,11 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-numer-EXM130-bundle",
+  "id": "tests-should-screen-ccs-bundle",
   "type": "transaction",
   "entry": [ {
     "resource": {
       "resourceType": "Encounter",
-      "id": "numer-EXM130-4",
+      "id": "should-screen-ccs-1",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
       },
@@ -23,58 +23,72 @@
         } ]
       } ],
       "subject": {
-        "reference": "Patient/numer-EXM130"
+        "reference": "Patient/should-screen-ccs"
       },
       "period": {
-        "start": "2019-05-30T00:00:00.0",
-        "end": "2019-05-31T00:00:00.0"
+        "start": "2019-05-30T00:00:00-00:00",
+        "end": "2019-05-31T00:00:00-00:00"
       }
     },
     "request": {
       "method": "PUT",
-      "url": "Encounter/numer-EXM130-4"
+      "url": "Encounter/should-screen-ccs-1"
     }
   }, {
     "resource": {
       "resourceType": "GuidanceResponse",
-      "id": "ccs-cds-numer-EXM130",
+      "id": "should-screen-ccs",
       "contained": [ {
-        "resourceType": "Parameters",
-        "id": "output",
-        "parameter": [ {
-          "name": "Is Recommendation Applicable",
-          "valueBoolean": false
-        }, {
-          "name": "Get Card Summary",
-          "valueString": "Patient has appropriate colorectal cancer screening"
-        }, {
-          "name": "Rationale",
-          "valueString": "most recent Colonoscopy performed on 2012-01-01"
-        }, {
-          "name": "Get Card Detail",
-          "valueString": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01."
-        }, {
-          "name": "Get Card Indicator",
-          "valueString": "info"
+        "resourceType": "CarePlan",
+        "id": "expected",
+        "instantiatesCanonical": [ "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS" ],
+        "status": "draft",
+        "intent": "proposal",
+        "subject": {
+          "reference": "Patient/should-screen-ccs"
+        },
+        "activity": [ {
+          "reference": {
+            "reference": "#screening-recommended"
+          }
+        } ]
+      }, {
+        "resourceType": "ServiceRequest",
+        "id": "screening-recommended",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
+          "valueMarkdown": "Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2009-12-30"
+        } ],
+        "status": "draft",
+        "intent": "proposal",
+        "doNotPerform": true,
+        "code": {
+          "text": "Colorectal Cancer Screening Recommended"
+        },
+        "subject": {
+          "reference": "Patient/should-screen-ccs"
+        },
+        "supportingInfo": [ {
+          "reference": "Procedure/should-screen-ccs-2"
         } ]
       } ],
-      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCDS",
+      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS",
       "status": "success",
       "subject": {
-        "reference": "Patient/numer-EXM130"
+        "reference": "Patient/should-screen-ccs"
       },
-      "outputParameters": {
-        "reference": "#output"
+      "result": {
+        "reference": "#expected"
       }
     },
     "request": {
       "method": "PUT",
-      "url": "GuidanceResponse/ccs-cds-numer-EXM130"
+      "url": "GuidanceResponse/should-screen-ccs"
     }
   }, {
     "resource": {
       "resourceType": "Patient",
-      "id": "numer-EXM130",
+      "id": "should-screen-ccs",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
       },
@@ -112,20 +126,20 @@
         "value": "999999992"
       } ],
       "name": [ {
-        "family": "Blitz",
-        "given": [ "Don" ]
+        "family": "Dere",
+        "given": [ "Ben" ]
       } ],
       "gender": "male",
       "birthDate": "1965-01-01"
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/numer-EXM130"
+      "url": "Patient/should-screen-ccs"
     }
   }, {
     "resource": {
       "resourceType": "Procedure",
-      "id": "numer-EXM130-1",
+      "id": "should-screen-ccs-2",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
       },
@@ -133,21 +147,21 @@
       "code": {
         "coding": [ {
           "system": "http://www.ama-assn.org/go/cpt",
-          "code": "44388",
-          "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+          "code": "44392",
+          "display": "Colonoscopy through stoma; with removal of tumor(s), polyp(s), or other lesion(s) by hot biopsy forceps"
         } ]
       },
       "subject": {
-        "reference": "Patient/numer-EXM130"
+        "reference": "Patient/should-screen-ccs"
       },
       "performedPeriod": {
-        "start": "2012-01-01T00:00:00-06:00",
-        "end": "2012-01-01T01:00:00-07:00"
+        "start": "2009-12-30T12:00:00",
+        "end": "2009-12-30T13:00:00"
       }
     },
     "request": {
       "method": "PUT",
-      "url": "Procedure/numer-EXM130-1"
+      "url": "Procedure/should-screen-ccs-2"
     }
   } ]
 }

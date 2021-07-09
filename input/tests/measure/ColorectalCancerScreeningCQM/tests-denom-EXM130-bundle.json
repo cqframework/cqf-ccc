@@ -36,6 +36,83 @@
     }
   }, {
     "resource": {
+      "resourceType": "MeasureReport",
+      "id": "denom-EXM130",
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "input",
+        "parameter": [ {
+          "name": "patient",
+          "valueString": "denom-EXM130"
+        }, {
+          "name": "periodStart",
+          "valueDate": "2019-01-01"
+        }, {
+          "name": "periodEnd",
+          "valueDate": "2019-12-31"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/cqfm-inputParameters",
+        "valueReference": {
+          "reference": "#input"
+        }
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "Measure/ColorectalCancerScreeningCQM",
+      "subject": {
+        "reference": "Patient/denom-EXM130"
+      },
+      "period": {
+        "start": "2019-01-01T00:00:00+00:00",
+        "end": "2019-12-31T00:00:00+00:00"
+      },
+      "group": [ {
+        "population": [ {
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 1
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 0
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 1
+        } ],
+        "measureScore": {
+          "value": 0.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/denom-EXM130"
+      }, {
+        "reference": "Procedure/denom-EXM130-2"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/denom-EXM130"
+    }
+  }, {
+    "resource": {
       "resourceType": "Patient",
       "id": "denom-EXM130",
       "meta": {

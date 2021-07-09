@@ -1,11 +1,11 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-numer-EXM130-bundle",
+  "id": "tests-should-not-screen-ccs-bundle",
   "type": "transaction",
   "entry": [ {
     "resource": {
       "resourceType": "Encounter",
-      "id": "numer-EXM130-4",
+      "id": "should-not-screen-ccs-4",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
       },
@@ -23,7 +23,7 @@
         } ]
       } ],
       "subject": {
-        "reference": "Patient/numer-EXM130"
+        "reference": "Patient/should-not-screen-ccs"
       },
       "period": {
         "start": "2019-05-30T00:00:00.0",
@@ -32,49 +32,63 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Encounter/numer-EXM130-4"
+      "url": "Encounter/should-not-screen-ccs-4"
     }
   }, {
     "resource": {
       "resourceType": "GuidanceResponse",
-      "id": "ccs-cds-numer-EXM130",
+      "id": "should-not-screen-ccs",
       "contained": [ {
-        "resourceType": "Parameters",
-        "id": "output",
-        "parameter": [ {
-          "name": "Is Recommendation Applicable",
-          "valueBoolean": false
-        }, {
-          "name": "Get Card Summary",
-          "valueString": "Patient has appropriate colorectal cancer screening"
-        }, {
-          "name": "Rationale",
-          "valueString": "most recent Colonoscopy performed on 2012-01-01"
-        }, {
-          "name": "Get Card Detail",
-          "valueString": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01."
-        }, {
-          "name": "Get Card Indicator",
-          "valueString": "info"
+        "resourceType": "CarePlan",
+        "id": "expected",
+        "instantiatesCanonical": [ "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS" ],
+        "status": "draft",
+        "intent": "proposal",
+        "subject": {
+          "reference": "Patient/should-not-screen-ccs"
+        },
+        "activity": [ {
+          "reference": {
+            "reference": "#screening-not-recommended"
+          }
+        } ]
+      }, {
+        "resourceType": "ServiceRequest",
+        "id": "screening-not-recommended",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
+          "valueMarkdown": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01"
+        } ],
+        "status": "draft",
+        "intent": "proposal",
+        "doNotPerform": true,
+        "code": {
+          "text": "Colorectal Cancer Screening Not Recommended"
+        },
+        "subject": {
+          "reference": "Patient/should-not-screen-ccs"
+        },
+        "supportingInfo": [ {
+          "reference": "Procedure/should-not-screen-ccs-1"
         } ]
       } ],
-      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCDS",
+      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS",
       "status": "success",
       "subject": {
-        "reference": "Patient/numer-EXM130"
+        "reference": "Patient/should-not-screen-ccs"
       },
-      "outputParameters": {
-        "reference": "#output"
+      "result": {
+        "reference": "#expected"
       }
     },
     "request": {
       "method": "PUT",
-      "url": "GuidanceResponse/ccs-cds-numer-EXM130"
+      "url": "GuidanceResponse/should-not-screen-ccs"
     }
   }, {
     "resource": {
       "resourceType": "Patient",
-      "id": "numer-EXM130",
+      "id": "should-not-screen-ccs",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
       },
@@ -120,12 +134,12 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/numer-EXM130"
+      "url": "Patient/should-not-screen-ccs"
     }
   }, {
     "resource": {
       "resourceType": "Procedure",
-      "id": "numer-EXM130-1",
+      "id": "should-not-screen-ccs-1",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
       },
@@ -138,7 +152,7 @@
         } ]
       },
       "subject": {
-        "reference": "Patient/numer-EXM130"
+        "reference": "Patient/should-not-screen-ccs"
       },
       "performedPeriod": {
         "start": "2012-01-01T00:00:00-06:00",
@@ -147,7 +161,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Procedure/numer-EXM130-1"
+      "url": "Procedure/should-not-screen-ccs-1"
     }
   } ]
 }
