@@ -37,7 +37,7 @@
   }, {
     "resource": {
       "resourceType": "GuidanceResponse",
-      "id": "should-screen-ccs",
+      "id": "should-screen-ccs-5",
       "contained": [ {
         "resourceType": "CarePlan",
         "id": "expected",
@@ -83,7 +83,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "GuidanceResponse/should-screen-ccs"
+      "url": "GuidanceResponse/should-screen-ccs-5"
     }
   }, {
     "resource": {

@@ -37,7 +37,7 @@
   }, {
     "resource": {
       "resourceType": "MeasureReport",
-      "id": "denom-EXM130",
+      "id": "denom-EXM130-5",
       "contained": [ {
         "resourceType": "Parameters",
         "id": "input",
@@ -109,7 +109,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "MeasureReport/denom-EXM130"
+      "url": "MeasureReport/denom-EXM130-5"
     }
   }, {
     "resource": {

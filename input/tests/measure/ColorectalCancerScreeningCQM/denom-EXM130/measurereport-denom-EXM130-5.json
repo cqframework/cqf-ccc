@@ -1,13 +1,13 @@
 {
     "resourceType": "MeasureReport",
-    "id": "numer-EXM130",
+    "id": "denom-EXM130-5",
     "contained": [
       {
         "resourceType": "Parameters",
         "id": "input",
         "parameter": [{
           "name": "patient",
-          "valueString": "numer-EXM130"
+          "valueString": "denom-EXM130"
         }, {
           "name": "periodStart",
           "valueDate": "2019-01-01"
@@ -29,7 +29,7 @@
     "type": "individual",
     "measure": "Measure/ColorectalCancerScreeningCQM",
     "subject": {
-        "reference": "Patient/numer-EXM130"
+        "reference": "Patient/denom-EXM130"
     },
     "period": {
         "start": "2019-01-01T00:00:00+00:00",
@@ -60,7 +60,7 @@
                             }
                         ]
                     },
-                    "count": 1
+                    "count": 0
                 },
                 {
                     "code": {
@@ -76,16 +76,16 @@
                 }
             ],
             "measureScore": {
-                "value": 1.0
+                "value": 0.0
             }
         }
     ],
     "evaluatedResource": [
         {
-            "reference": "Patient/numer-EXM130"
+            "reference": "Patient/denom-EXM130"
         },
         {
-            "reference": "Procedure/numer-EXM130-1"
+            "reference": "Procedure/denom-EXM130-2"
         }
     ]
 }
