@@ -26,6 +26,12 @@ define "Flexible Sigmoidoscopy Performed":
   [Procedure: Cx."Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
 
+// NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
+define "Flexible Sigmoidoscopy from Patient History":
+  [Condition: Cx."Flexible Sigmoidoscopy"] FlexibleSigmoidoscopyCondition
+    where FlexibleSigmoidoscopyCondition.clinicalStatus in FC."Active Condition"
+      and FlexibleSigmoidoscopyCondition.verificationStatus ~ FC."confirmed"
+
 define "CT Colonography Performed":
   [Procedure: Cx."CT Colonography"] Colonography
     where Colonography.status = 'completed'
@@ -33,6 +39,12 @@ define "CT Colonography Performed":
 define "Total Colectomy Performed":
   [Procedure: Cx."Total Colectomy"] Colectomy
     where Colectomy.status = 'completed'
+
+// NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
+define "Total Colectomy from Patient History":
+  [Condition: Cx."Total Colectomy"] ColectomyCondition
+    where ColectomyCondition.clinicalStatus in FC."Active Condition"
+      and ColectomyCondition.verificationStatus ~ FC."confirmed"
 
 define "Fecal Occult Blood Test Result":
   [Observation: Cx."Fecal Occult Blood Test (FOBT)"] FecalOccultResult
@@ -47,6 +59,12 @@ define "Fecal Immunochemical Test DNA Result":
 define "Colonoscopy Performed":
   [Procedure: Cx."Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
+
+// NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
+define "Colonoscopy from Patient History":
+  [Condition: Cx."Colonoscopy"] C
+    where C.clinicalStatus in FC."Active Condition"
+    and C.verificationStatus ~ FC."confirmed"
 
 define "Active Malignant Neoplasm":
   [Condition: Cx."Malignant Neoplasm of Colon"] ColorectalCancer
@@ -94,6 +112,18 @@ define "Has Active Malignant Neoplasm":
       where FC.ToPrevalenceInterval(M) starts on or before AsOf
   )
 
+// NOTE: Added these two for HEDIS version.
+define "Has Total Colectomy Performed":
+  exists (
+    PerformedWithin("Total Colectomy Performed", 1 year)
+  )
+
+define "Has History of Total Colectomy":
+ exists (
+    "Total Colectomy from Patient History" ColectomyHistory
+      where FC.ToPrevalenceInterval(ColectomyHistory) starts on or before AsOf
+  )
+
 /*
   FOBT within 1 year
     or FIT DNA within 3 years
@@ -107,6 +137,15 @@ define "Has Appropriate Colorectal Cancer Screening":
     or exists "CT Colonography Performed Within 5 Years"
     or exists "Flexible Sigmoidoscopy Performed Within 5 Years"
     or exists "Colonoscopy Performed Within 10 Years"
+
+// NOTE: For Condition options
+define "Has History of Appropriate Colorectal Cancer Screening":
+  exists (
+    "Flexible Sigmoidoscopy from Patient History" FlexSigCondition
+      where FC.ToPrevalenceInterval(FlexSigCondition) starts on or after day of AsOf - 5 years)
+  or exists (
+    "Colonoscopy from Patient History" ColonscopyCondition
+      where FC.ToPrevalenceInterval(ColonscopyCondition) starts on or after day of AsOf - 10 years)
 
 define function MostRecent(procedures List<Procedure>, asOf DateTime):
   First(
