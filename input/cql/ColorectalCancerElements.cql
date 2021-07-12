@@ -26,9 +26,9 @@ define "Flexible Sigmoidoscopy Performed":
   [Procedure: Cx."Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
 
-// NOTE: HEDIS version allows for this SNOMED code as FHIR.Condition. Code is also present in eCQM valueset.
+// NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
 define "Flexible Sigmoidoscopy from Patient History":
-  [Condition: Cx."History of flexible sigmoidoscopy (situation)"] FlexibleSigmoidoscopyCondition
+  [Condition: Cx."Flexible Sigmoidoscopy"] FlexibleSigmoidoscopyCondition
     where FlexibleSigmoidoscopyCondition.clinicalStatus in FC."Active Condition"
       and FlexibleSigmoidoscopyCondition.verificationStatus ~ FC."confirmed"
 
@@ -40,9 +40,9 @@ define "Total Colectomy Performed":
   [Procedure: Cx."Total Colectomy"] Colectomy
     where Colectomy.status = 'completed'
 
-// NOTE: HEDIS version allows for this SNOMED code as FHIR.Condition. Code is also present in eCQM valueset.
+// NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
 define "Total Colectomy from Patient History":
-  [Condition: Cx."History of total colectomy (situation)"] ColectomyCondition
+  [Condition: Cx."Total Colectomy"] ColectomyCondition
     where ColectomyCondition.clinicalStatus in FC."Active Condition"
       and ColectomyCondition.verificationStatus ~ FC."confirmed"
 
@@ -60,9 +60,9 @@ define "Colonoscopy Performed":
   [Procedure: Cx."Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
 
-// NOTE: HEDIS version allows for this SNOMED code as FHIR.Condition. Code is also present in eCQM valueset.
+// NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
 define "Colonoscopy from Patient History":
-  [Condition: Cx."History of colonscopy (situation)"] C
+  [Condition: Cx."Colonoscopy"] C
     where C.clinicalStatus in FC."Active Condition"
     and C.verificationStatus ~ FC."confirmed"
 
