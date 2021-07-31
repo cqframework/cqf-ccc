@@ -68,10 +68,6 @@
     "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts"
   }, {
     "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
-  }, {
-    "type": "depends-on",
     "display": "Code system ConditionVerificationStatusCodes",
     "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
   }, {

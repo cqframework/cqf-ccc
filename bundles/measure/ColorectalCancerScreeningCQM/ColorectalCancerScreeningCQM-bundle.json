@@ -512,16 +512,8 @@
         "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers",
-        "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
-      }, {
-        "type": "depends-on",
         "display": "Library FC",
         "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1"
-      }, {
-        "type": "depends-on",
-        "display": "Library FHIRHelpers",
-        "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
       }, {
         "type": "depends-on",
         "display": "Code system ConditionVerificationStatusCodes",
@@ -1132,7 +1124,7 @@
       "title": "Colorectal Cancer Screening CQM",
       "status": "draft",
       "experimental": true,
-      "date": "2021-07-14T08:30:58-06:00",
+      "date": "2021-07-29T10:32:36-06:00",
       "publisher": "National Committee for Quality Assurance",
       "description": "Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer",
       "purpose": "Illustration",
@@ -1157,10 +1149,6 @@
         "type": "depends-on",
         "display": "Library FC",
         "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1"
-      }, {
-        "type": "depends-on",
-        "display": "Library FHIRHelpers",
-        "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
       }, {
         "type": "depends-on",
         "display": "Value set Fecal Occult Blood Test (FOBT)",
@@ -1401,10 +1389,6 @@
         "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers",
-        "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
-      }, {
-        "type": "depends-on",
         "display": "Code system ConditionVerificationStatusCodes",
         "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
       }, {
@@ -1615,7 +1599,7 @@
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-        "mustSupport": [ "status", "performed" ],
+        "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
@@ -1626,22 +1610,9 @@
           } ]
         } ]
       }, {
-        "type": "Condition",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
-        }, {
-          "path": "clinicalStatus",
-          "valueSet": "http://fhir.org/guides/cqf/common/ValueSet/active-condition"
-        }, {
-          "path": "verificationStatus"
-        } ]
-      }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-        "mustSupport": [ "performed", "status" ],
+        "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"
@@ -1654,7 +1625,7 @@
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-        "mustSupport": [ "status" ],
+        "mustSupport": [ "code", "status" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019"
@@ -1665,38 +1636,9 @@
           } ]
         } ]
       }, {
-        "type": "Condition",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019"
-        }, {
-          "path": "clinicalStatus",
-          "valueSet": "http://fhir.org/guides/cqf/common/ValueSet/active-condition"
-        }, {
-          "path": "verificationStatus"
-        } ]
-      }, {
-        "type": "Observation",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-        "mustSupport": [ "status", "value", "issued" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"
-        } ]
-      }, {
-        "type": "Observation",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-        "mustSupport": [ "status", "value", "issued" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"
-        } ]
-      }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-        "mustSupport": [ "status", "performed" ],
+        "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
@@ -1707,51 +1649,9 @@
           } ]
         } ]
       }, {
-        "type": "Condition",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
-        }, {
-          "path": "clinicalStatus",
-          "valueSet": "http://fhir.org/guides/cqf/common/ValueSet/active-condition"
-        }, {
-          "path": "verificationStatus"
-        } ]
-      }, {
-        "type": "Condition",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
-        }, {
-          "path": "clinicalStatus",
-          "valueSet": "http://fhir.org/guides/cqf/common/ValueSet/active-condition"
-        }, {
-          "path": "verificationStatus"
-        } ]
-      }, {
-        "type": "Observation",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-        "mustSupport": [ "status", "value", "issued" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"
-        } ]
-      }, {
-        "type": "Observation",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-        "mustSupport": [ "status", "value", "issued" ],
-        "codeFilter": [ {
-          "path": "code",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"
-        } ]
-      }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-        "mustSupport": [ "status", "performed" ],
+        "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
@@ -1764,7 +1664,7 @@
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-        "mustSupport": [ "performed", "status" ],
+        "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"
@@ -1777,7 +1677,7 @@
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-        "mustSupport": [ "status", "performed" ],
+        "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
@@ -1790,7 +1690,7 @@
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
+        "mustSupport": [ "code", "verificationStatus", "clinicalStatus" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
@@ -1803,7 +1703,7 @@
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
+        "mustSupport": [ "code", "verificationStatus", "clinicalStatus" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019"
@@ -1816,7 +1716,7 @@
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
+        "mustSupport": [ "code", "verificationStatus", "clinicalStatus" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
@@ -1829,7 +1729,7 @@
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-        "mustSupport": [ "verificationStatus", "clinicalStatus" ],
+        "mustSupport": [ "code", "verificationStatus", "clinicalStatus" ],
         "codeFilter": [ {
           "path": "code",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
@@ -1838,6 +1738,22 @@
           "valueSet": "http://fhir.org/guides/cqf/common/ValueSet/active-condition"
         }, {
           "path": "verificationStatus"
+        } ]
+      }, {
+        "type": "Observation",
+        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+        "mustSupport": [ "code", "issued", "value", "status" ],
+        "codeFilter": [ {
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"
+        } ]
+      }, {
+        "type": "Observation",
+        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+        "mustSupport": [ "code", "issued", "value", "status" ],
+        "codeFilter": [ {
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"
         } ]
       } ],
       "content": [ {
