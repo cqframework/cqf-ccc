@@ -10,6 +10,7 @@ The walkthrough is organized into the following sections:
 * [USPSTF Recommendation on Colorectal Cancer Screening](#uspstf-recommendation-on-colorectal-cancer-screening)
 * [Setting Up](#setting-up)
 * [Artifact Source](#artifact-source)
+* [Building the Artifact Library](#building-the-artifact-library)
 * [Unit Testing](#unit-testing)
 * [Running the Decision Support](#running-the-decision-support)
 * [Running the Quality Measure](#running-the-quality-measure)
@@ -21,7 +22,7 @@ This walkthrough is an illustration of FHIR- and CQL-based knowledge artifacts t
 
 The artifacts are built using the [approach](https://hl7.org/fhir/uv/cpg/approach.html) and [methodology](https://hl7.org/fhir/uv/cpg/methodology.html) of the FHIR Clinical Guidelines IG. The walkthrough does not assume familiarity with this material, but interested readers can find more detailed information.
 
-Specifically, because the knowledge artifacts in this Artifact Library are FHIR conformance resources, the content here is built as a FHIR Implementation Guide, allowing knowledge authors to leverage the FHIR publishing toolchain to provide distribution and documentation of the artifacts.
+Specifically, because the knowledge artifacts in this Artifact Library are FHIR canonical resources, the content here is built as a FHIR Implementation Guide, allowing knowledge authors to leverage the FHIR publishing toolchain to provide distribution and documentation of the artifacts.
 
 ## USPSTF Recommendation on Colorectal Cancer Screening
 
@@ -53,9 +54,13 @@ This will open the codespace in your browser. While the codespace is initializin
 
 This environment has everything you need to author, validate, build, test, and package FHIR- and CQL-based knowledge artifacts.
 
+If you have already created a codespace, it will be listed in the Codespaces tab of the Code dropdown.
+
 ## Artifact Source
 
 ## Unit Testing
+
+## Building the Artifact Library
 
 ## Running the Decision Support
 
