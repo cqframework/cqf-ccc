@@ -11,7 +11,7 @@
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
-      "reference": "cqf-tooling"
+      "reference": "Device/cqf-tooling"
     }
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
@@ -281,7 +281,7 @@
   "title": "Colorectal Cancer Screening CQM",
   "status": "draft",
   "experimental": true,
-  "date": "2021-07-29T10:32:36-06:00",
+  "date": "2021-10-11T14:34:37-06:00",
   "publisher": "National Committee for Quality Assurance",
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer",
   "purpose": "Illustration",
@@ -306,6 +306,10 @@
     "type": "depends-on",
     "display": "Library FC",
     "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
     "display": "Value set Fecal Occult Blood Test (FOBT)",

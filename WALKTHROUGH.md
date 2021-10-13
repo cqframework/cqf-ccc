@@ -62,6 +62,26 @@ If you have already created a codespace, it will be listed in the Codespaces tab
 
 ## Building the Artifact Library
 
+To build the Artifact Library, run the CQF Refresh tooling, and then the Publisher. Both of these are Java available as Java packages. They're too big to commit to the repository, so there are scripts to make downloading them to your local environment easy. First, make sure the CQF Tooling and Publisher are in your local cache by running the following:
+
+    bash _updatePublisher.sh
+
+    bash _updateCQFTooling.sh
+
+Follow the prompts to allow the downloads to be placed in your local input-cache directory.
+
+Then, run the CQF Tooling refresh with:
+
+    bash _refresh.sh
+
+And finally, run the Publisher with:
+
+    bash _genonce.sh
+
+The result of the publisher step will create the Artifact Library as a FHIR Implementation Guide in the `output` folder, so open a browser on the [index.html](output/index.html) page to see the result.
+
+> NOTE: The index.html link above will open the index.html page in an editor in the environment. Right-click in that editor and select "Open with Live Server" to view the page in your browser.
+
 ## Running the Decision Support
 
 ## Running the Quality Measure
