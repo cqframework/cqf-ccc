@@ -8,7 +8,6 @@ The walkthrough is organized into the following sections:
 
 * [Background](#background)
 * [USPSTF Recommendation on Colorectal Cancer Screening](#uspstf-recommendation-on-colorectal-cancer-screening)
-* [Setting Up](#setting-up)
 * [Artifact Source](#artifact-source)
 * [Unit Testing](#unit-testing)
 * [Building the Artifact Library](#building-the-artifact-library)
@@ -45,30 +44,6 @@ In this approach, a Clinical Reasoning service is used to provide a CDS Hooks en
 2. Deploying the recommendation to the Clinical Reasoning service
 3. Integration testing the recommendation with the CDS Hooks Sandbox
 
-## Setting Up
-
-This walkthrough is focused on using [codespaces](https://github.com/features/codespaces) to allow participants a completely browser-based experience. For a similar walkthrough using desktop tooling, refer to the [Sample Content IG Walkthrough](https://github.com/cqframework/content-ig-walkthrough).
-
-### Provide a Github Account
-
-Codespaces is a feature of Github, so the first step is to sign up for a [Github Account](https://github.com/signup). If you already have a github account, provide your Github ID to the workshop facilitator by emailing it to <info@alphora.com>.
-
-To use codespaces, the workshop facilitator will need to add you to the Alphora github organization. Codespaces is a paid service, and Alphora is sponsoring codespace usage for the purpose of this workshop. Codespace accounts will be available one week prior to and one week after the workshop to allow participants to work through the material.
-
-### Open the Codespace
-
-Once your github account is associated with the Alphora organization, you will be able to open the Colorectal Cancer Concepts repository in a codespace. To do this, navigate to the [Colorectal Cancer Concepts repository](https://github.com/alphora/cqf-ccc), click on the green `Code` dropdown, and click on the `New codespace` button:
-
-![New codespace](images/new-codespace.png)
-
-This will open the codespace in your browser. While the codespace is initializing, a message will be displayed. Once the codespace setup is complete, you will be presented with a codespace view of the environment:
-
-![Codespace environment](images/codespace-environment.png)
-
-This environment has everything you need to author, validate, build, test, and package FHIR- and CQL-based knowledge artifacts.
-
-If you have already created a codespace, it will be listed in the Codespaces tab of the Code dropdown.
-
 ## Artifact Source
 
 For delivery as a CDS Hooks service, we represent the recommendation as an Event-condition-action or ECA rule, using the following source artifacts:
@@ -90,7 +65,7 @@ For unit testing, we define test cases in the `input/tests/cdshooks` directory. 
     * [Encounter](input/tests/cdshooks/ColorectalCancerScreeningCDS/encounter-should-screen-ccs-1.json)
     * [Procedure](input/tests/cdshooks/ColorectalCancerScreeningCDS/procedure-should-screen-ccs-2.json)
 
-To run the tests, open the [ColorectalCancerScreeningCDS.cql](input/cql/ColorectalCancerScreeningCDS.cql) file, and in the CQL editor, right-click and select `CQL | Execute`:
+To run the tests, open the [ColorectalCancerScreeningCDS.cql](input/cql/ColorectalCancerScreeningCDS.cql) file, and in the CQL editor, right-click and select `Execute CQL`:
 
 ![Execute CQL](images/ccs-cds-execute-cql.png)
 
@@ -129,6 +104,8 @@ Then, run the CQF Tooling refresh with:
 
     bash _refresh.sh
 
+> NOTE: The refresh tooling is performing several steps to process the knowledge artifacts, and there are some non-fatal errors reported during the process. For example, `Error setting PlanDefinition paths...` and `Error reading resource from path...`. These are known issues and do not affect the refresh for the artifacts in this walkthrough.
+
 And finally, run the Publisher with:
 
     bash _genonce.sh
@@ -143,7 +120,7 @@ To run the decision support, we load the [ColorectalCancerScreeningCDS](bundles/
 
     curl -d "@bundles/plandefinition/ColorectalCancerScreeningCDS/ColorectalCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST https://cds-sandbox.alphora.com/cqf-ruler-r4/fhir
 
-> NOTE: If you get an error about "HSEARCH" not working, that is a know issue with indexing in the HAPI FHIR Server. Just re-run the command and it should work the second time. We're working on it.
+> NOTE: If you get an error about "HSEARCH" not working, that is a known issue with indexing in the HAPI FHIR Server. Just re-run the command and it should work the second time. We're working on it.
 
 ### Configuring the CDS Hooks Sandbox
 
@@ -169,5 +146,22 @@ and then click Next. The CDS Hooks sandbox will then call that service with the 
 
 ## Running the Quality Measure
 
+To run the quality measure, post the quality measure bundle to the CQM sandbox with the following command:
+
+    curl -d "@bundles/measure/ColorectalCancerScreeningCQM/ColorectalCancerScreeningCQM-bundle.json" -H "Content-Type: application/json" -X POST https://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir
+
+As with the decision support bundle, this bundle contains all the files necessary to evaluate the measure, including test data. To run the measure, use the [$evaluate-measure](https://hl7.org/fhir/measure-operation-evaluate-measure.html) operation:
+
+    curl 'https://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/Measure/ColorectalCancerScreeningCQM/$evaluate-measure?patient=denom-EXM130&periodStart=2019-01-01&periodEnd=2019-12-31' -H "Content-Type: application/json"
+
+
 ## Updating the Content
+
+To update the content, perform the following steps:
+
+1. Update the source CQL and/or FHIR resources.
+2. Run the `bash _refresh.sh` command to refresh the FHIR Library and repackage the artifact bundles
+3. Redeploy the updated artifact using the `curl` command (or a similar client such as Postman)
+
+And because you've made changes in the source artifacts, to rebuild the IG, run the `bash _genonce.sh` command to rerun the publisher.
 
