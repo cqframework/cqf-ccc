@@ -30,11 +30,21 @@ Once your github account is associated with the Alphora organization, you will b
 
 ![New codespace](images/new-codespace.png)
 
-This will open the codespace in your browser. While the codespace is initializing, a message will be displayed. Once the codespace setup is complete, you will be presented with a codespace view of the environment:
+When creating a new codespace, you need to specify the size of the machine. Just accept the default setting of 4 cores, 8GB of RAM and 32GB of disk space:
+
+![New codespace options](images/new-codespace-options.png)
+
+This will open the codespace in your browser. While the codespace is initializing, a message will be displayed. Note that while it's loading, there is a green button at the bottom of the screen that allows you to `Open this codespace in VS Code desktop`. This option requires additional setup to run locally, so don't choose that unless you're sure you have all the prerequisites installed; just allow the codespace to continue initializing:
+
+![New codespace initializing](images/new-codespace-initializing.png)
+
+The first time you build a codespace, this process can take quite a bit of time, so be sure to give it adequate time to complete. This is also a step that can be taken prior to the workshop so you're ready to go.
+
+Once the codespace setup is complete, you will be presented with a codespace view of the environment:
 
 ![Codespace environment](images/codespace-environment.png)
 
-This environment has everything you need to author, validate, build, test, and package FHIR- and CQL-based knowledge artifacts.
+This environment has everything you need to author, validate, build, test, and package FHIR- and CQL-based knowledge artifacts. To start the walkthrough, open [WALKTHROUGH.md](WALKTHROUGH.md) in preview and follow the instructions there.
 
 If you have already created a codespace, it will be listed in the Codespaces tab of the Code dropdown.
 
