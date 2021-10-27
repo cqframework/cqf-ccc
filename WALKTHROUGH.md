@@ -90,6 +90,8 @@ Validate that the results are as expected:
     * Get Card Detail=Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2009-12-30.
     * Get Card Indicator=warning
 
+> NOTE: The execution output includes several warnings from the terminology provider indicating that there is no expansion element so the provider is using a naive expansion, as well as some warnings about not being able to parse resources. These are expected in this configuration.
+
 ## Building the Artifact Library
 
 To build the Artifact Library, run the CQF Refresh tooling, and then the Publisher. Both of these are available as Java packages. They're too big to commit to the repository, so there are scripts to make downloading them to your local environment easy. First, make sure the CQF Tooling and Publisher are in your local cache by running the following:
