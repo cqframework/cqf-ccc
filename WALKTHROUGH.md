@@ -6,14 +6,18 @@ This walkthrough guides you through setting up, building, and modifying the Colo
 
 The walkthrough is organized into the following sections:
 
-* [Background](#background)
-* [USPSTF Recommendation on Colorectal Cancer Screening](#uspstf-recommendation-on-colorectal-cancer-screening)
-* [Artifact Source](#artifact-source)
-* [Unit Testing](#unit-testing)
-* [Building the Artifact Library](#building-the-artifact-library)
-* [Running the Decision Support](#running-the-decision-support)
-* [Running the Quality Measure](#running-the-quality-measure)
-* [Updating the Content](#updating-the-content)
+- [Colorectal Cancer Concepts Walkthrough](#colorectal-cancer-concepts-walkthrough)
+  - [Overview](#overview)
+  - [Background](#background)
+  - [USPSTF Recommendation on Colorectal Cancer Screening](#uspstf-recommendation-on-colorectal-cancer-screening)
+  - [Approach](#approach)
+  - [Artifact Source](#artifact-source)
+  - [Unit Testing](#unit-testing)
+  - [Building the Artifact Library](#building-the-artifact-library)
+  - [Running the Decision Support](#running-the-decision-support)
+    - [Configuring the CDS Hooks Sandbox](#configuring-the-cds-hooks-sandbox)
+  - [Running the Quality Measure](#running-the-quality-measure)
+  - [Updating the Content](#updating-the-content)
 
 ## Background
 
@@ -114,7 +118,7 @@ And finally, run the Publisher with:
 
 The result of the publisher step will create the Artifact Library as a FHIR Implementation Guide in the `output` folder, so open a browser on the [index.html](output/index.html) page to see the result.
 
-> NOTE: The index.html link above will open the index.html page in an editor in the environment. Right-click in that editor and select "Open with Live Server" to view the page in your browser.
+> NOTE: The index.html link above will open the index.html page in an editor in the environment. Right-click in that editor and select "Open with Live Server" to view the page in your browser. Alternatively, click the "Go Live" option in the bottom right correct of your workspace".
 
 ## Running the Decision Support
 
