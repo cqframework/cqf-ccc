@@ -1,27 +1,29 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.194.0/containers/java-8
 {
-	"name": "IG Development Container",
-	"image": "contentgroup/dev-ig:latest",
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"vscjava.vscode-java-pack",
-		"cqframework.cql",
-		"ritwickdey.liveserver"
-	],
-
-	"settings": {
-        "git.path": "/usr/bin/git",
-        "terminal.integrated.defaultProfile.linux": "bash (-i)"
-    },
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [ 3000 ],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
-
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+    "name": "IG Development Container",
+    "image": "contentgroup/dev-ig:latest",
+    // "settings": {
+    //     "git.path": "/usr/bin/git",
+    //     "terminal.integrated.defaultProfile.linux": "bash (-i)",
+	// 	"java.configuration.runtimes": [{
+	// 		"default": true,
+	// 		"name": "JavaSE-11",
+	// 		"path": "/usr/local/openjdk-11"
+	// 	}]
+    // },
+    
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "vscjava.vscode-java-pack",
+        "cqframework.cql",
+        "ritwickdey.liveserver",
+    ],
+	
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        3000
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "java -version",
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }
