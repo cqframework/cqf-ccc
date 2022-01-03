@@ -1,15 +1,9 @@
 {
     "name": "IG Development Container",
     "image": "contentgroup/dev-ig:latest",
-    // "settings": {
-    //     "git.path": "/usr/bin/git",
-    //     "terminal.integrated.defaultProfile.linux": "bash (-i)",
-	// 	"java.configuration.runtimes": [{
-	// 		"default": true,
-	// 		"name": "JavaSE-11",
-	// 		"path": "/usr/local/openjdk-11"
-	// 	}]
-    // },
+	"settings": {
+		"java.help.showReleaseNotes": false
+	},
     
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
