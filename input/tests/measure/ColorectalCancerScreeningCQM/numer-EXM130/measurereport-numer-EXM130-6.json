@@ -10,10 +10,10 @@
           "valueString": "numer-EXM130"
         }, {
           "name": "periodStart",
-          "valueDate": "2019-01-01"
+          "valueDate": "2022-01-01"
         }, {
           "name": "periodEnd",
-          "valueDate": "2019-12-31"
+          "valueDate": "2022-12-31"
         }]
       }
     ],
@@ -32,8 +32,8 @@
         "reference": "Patient/numer-EXM130"
     },
     "period": {
-        "start": "2019-01-01T00:00:00+00:00",
-        "end": "2019-12-31T00:00:00+00:00"
+        "start": "2022-01-01T00:00:00+00:00",
+        "end": "2022-12-31T00:00:00+00:00"
     },
     "group": [
         {

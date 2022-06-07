@@ -1,0 +1,11 @@
+Running tests.
+No tests found at /workspaces/cqf-ccc/input/tests. Evaluation may fail if data is required.
+Terminology path: /workspaces/cqf-ccc/input/vocabulary/valueset
+Patient=null
+Initial Population=null
+Denominator=null
+Numerator=false
+Denominator Exclusion=false
+
+elapsed: 0.308 seconds
+

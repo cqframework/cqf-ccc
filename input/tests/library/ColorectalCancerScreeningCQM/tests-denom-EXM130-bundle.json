@@ -26,47 +26,13 @@
         "reference": "Patient/denom-EXM130"
       },
       "period": {
-        "start": "2019-05-30T00:00:00-00:00",
-        "end": "2019-05-31T00:00:00-00:00"
+        "start": "2022-05-30T00:00:00-00:00",
+        "end": "2022-05-31T00:00:00-00:00"
       }
     },
     "request": {
       "method": "PUT",
       "url": "Encounter/denom-EXM130-1"
-    }
-  }, {
-    "resource": {
-      "resourceType": "GuidanceResponse",
-      "id": "ccs-cqm-denom-EXM130",
-      "contained": [ {
-        "resourceType": "Parameters",
-        "id": "output",
-        "parameter": [ {
-          "name": "Initial Population",
-          "valueBoolean": true
-        }, {
-          "name": "Denominator",
-          "valueBoolean": true
-        }, {
-          "name": "Numerator",
-          "valueBoolean": false
-        }, {
-          "name": "Denominator Exclusion",
-          "valueBoolean": false
-        } ]
-      } ],
-      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM",
-      "status": "success",
-      "subject": {
-        "reference": "Patient/denom-EXM130"
-      },
-      "outputParameters": {
-        "reference": "#output"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "GuidanceResponse/ccs-cqm-denom-EXM130"
     }
   }, {
     "resource": {
@@ -113,7 +79,7 @@
         "given": [ "Ben" ]
       } ],
       "gender": "male",
-      "birthDate": "1965-01-01"
+      "birthDate": "1968-01-01"
     },
     "request": {
       "method": "PUT",
@@ -138,13 +104,47 @@
         "reference": "Patient/denom-EXM130"
       },
       "performedPeriod": {
-        "start": "2009-12-30T12:00:00",
-        "end": "2009-12-30T13:00:00"
+        "start": "2011-12-30T12:00:00",
+        "end": "2011-12-30T13:00:00"
       }
     },
     "request": {
       "method": "PUT",
       "url": "Procedure/denom-EXM130-2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "GuidanceResponse",
+      "id": "ccs-cqm-denom-EXM130",
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "output",
+        "parameter": [ {
+          "name": "Initial Population",
+          "valueBoolean": true
+        }, {
+          "name": "Denominator",
+          "valueBoolean": true
+        }, {
+          "name": "Numerator",
+          "valueBoolean": false
+        }, {
+          "name": "Denominator Exclusion",
+          "valueBoolean": false
+        } ]
+      } ],
+      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM",
+      "status": "success",
+      "subject": {
+        "reference": "Patient/denom-EXM130"
+      },
+      "outputParameters": {
+        "reference": "#output"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "GuidanceResponse/ccs-cqm-denom-EXM130"
     }
   } ]
 }

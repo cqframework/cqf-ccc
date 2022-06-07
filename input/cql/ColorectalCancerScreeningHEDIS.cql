@@ -7,7 +7,7 @@ include FHIRHelpers version '4.0.1' called FHIRHelpers
 include ColorectalCancerElements called CCE
 
 parameter "Measurement Period" Interval<DateTime>
-  default Interval[@2019-01-01T00:00:00.0-06:00, @2020-01-01T00:00:00.0-06:00)
+  default Interval[@2022-01-01T00:00:00.0-06:00, @2023-01-01T00:00:00.0-06:00)
 
 context Patient
 
