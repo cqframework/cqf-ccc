@@ -4,6 +4,33 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
+      "resourceType": "Procedure",
+      "id": "numer-EXM130-1",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
+      },
+      "status": "completed",
+      "code": {
+        "coding": [ {
+          "system": "http://www.ama-assn.org/go/cpt",
+          "code": "44388",
+          "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM130"
+      },
+      "performedPeriod": {
+        "start": "2015-01-01T00:00:00-06:00",
+        "end": "2015-01-01T01:00:00-07:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Procedure/numer-EXM130-1"
+    }
+  }, {
+    "resource": {
       "resourceType": "Encounter",
       "id": "numer-EXM130-4",
       "meta": {
@@ -26,13 +53,47 @@
         "reference": "Patient/numer-EXM130"
       },
       "period": {
-        "start": "2019-05-30T00:00:00.0",
-        "end": "2019-05-31T00:00:00.0"
+        "start": "2022-05-30T00:00:00.0",
+        "end": "2022-05-31T00:00:00.0"
       }
     },
     "request": {
       "method": "PUT",
       "url": "Encounter/numer-EXM130-4"
+    }
+  }, {
+    "resource": {
+      "resourceType": "GuidanceResponse",
+      "id": "ccs-cqm-numer-EXM130",
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "output",
+        "parameter": [ {
+          "name": "Initial Population",
+          "valueBoolean": true
+        }, {
+          "name": "Denominator",
+          "valueBoolean": true
+        }, {
+          "name": "Numerator",
+          "valueBoolean": true
+        }, {
+          "name": "Denominator Exclusion",
+          "valueBoolean": false
+        } ]
+      } ],
+      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM",
+      "status": "success",
+      "subject": {
+        "reference": "Patient/numer-EXM130"
+      },
+      "outputParameters": {
+        "reference": "#output"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "GuidanceResponse/ccs-cqm-numer-EXM130"
     }
   }, {
     "resource": {
@@ -79,72 +140,11 @@
         "given": [ "Don" ]
       } ],
       "gender": "male",
-      "birthDate": "1965-01-01"
+      "birthDate": "1968-01-01"
     },
     "request": {
       "method": "PUT",
       "url": "Patient/numer-EXM130"
-    }
-  }, {
-    "resource": {
-      "resourceType": "GuidanceResponse",
-      "id": "ccs-cqm-numer-EXM130",
-      "contained": [ {
-        "resourceType": "Parameters",
-        "id": "output",
-        "parameter": [ {
-          "name": "Initial Population",
-          "valueBoolean": true
-        }, {
-          "name": "Denominator",
-          "valueBoolean": true
-        }, {
-          "name": "Numerator",
-          "valueBoolean": true
-        }, {
-          "name": "Denominator Exclusion",
-          "valueBoolean": false
-        } ]
-      } ],
-      "moduleCanonical": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM",
-      "status": "success",
-      "subject": {
-        "reference": "Patient/numer-EXM130"
-      },
-      "outputParameters": {
-        "reference": "#output"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "GuidanceResponse/ccs-cqm-numer-EXM130"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Procedure",
-      "id": "numer-EXM130-1",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
-      },
-      "status": "completed",
-      "code": {
-        "coding": [ {
-          "system": "http://www.ama-assn.org/go/cpt",
-          "code": "44388",
-          "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer-EXM130"
-      },
-      "performedPeriod": {
-        "start": "2012-01-01T00:00:00-06:00",
-        "end": "2012-01-01T01:00:00-07:00"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Procedure/numer-EXM130-1"
     }
   } ]
 }

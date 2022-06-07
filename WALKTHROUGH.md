@@ -83,15 +83,15 @@ Validate that the results are as expected:
     * Patient=Patient(id=should-not-screen-ccs)
     * Is Recommendation Applicable=false
     * Get Card Summary=Patient has appropriate colorectal cancer screening
-    * Rationale=most recent Colonoscopy performed on 2012-01-01
-    * Get Card Detail=Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01.
+    * Rationale=most recent Colonoscopy performed on 2015-01-01
+    * Get Card Detail=Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2015-01-01.
     * Get Card Indicator=info
 * should-screen-ccs
     * Patient=Patient(id=should-screen-ccs)
     * Is Recommendation Applicable=true
     * Get Card Summary=Recommend appropriate colorectal cancer screening
-    * Rationale=most recent Colonoscopy performed on 2009-12-30
-    * Get Card Detail=Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2009-12-30.
+    * Rationale=most recent Colonoscopy performed on 2011-12-30
+    * Get Card Detail=Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has most recent Colonoscopy performed on 2011-12-30.
     * Get Card Indicator=warning
 
 > NOTE: The execution output includes several warnings from the terminology provider indicating that there is no expansion element so the provider is using a naive expansion, as well as some warnings about not being able to parse resources. These are expected in this configuration.
@@ -118,13 +118,13 @@ And finally, run the Publisher with:
 
 The result of the publisher step will create the Artifact Library as a FHIR Implementation Guide in the `output` folder, so open a browser on the [index.html](output/index.html) page to see the result.
 
-> NOTE: The index.html link above will open the index.html page in an editor in the environment. Right-click in that editor and select "Open with Live Server" to view the page in your browser. Alternatively, click the "Go Live" option in the bottom right correct of your workspace".
+> NOTE: The index.html link above will open the index.html page in an editor in the environment. Right-click in that editor and select "Open with Live Server" to view the page in your browser.
 
 ## Running the Decision Support
 
 To run the decision support, we load the [ColorectalCancerScreeningCDS](bundles/plandefinition/ColorectalCancerScreeningCDS-bundle.json) bundle, which contains all the resources for the recommendation (including the test case data) into the Clinical Reasoning server:
 
-    curl -d "@bundles/plandefinition/ColorectalCancerScreeningCDS/ColorectalCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST https://cds-sandbox.alphora.com/cqf-ruler-r4/fhir
+    curl -d "@bundles/plandefinition/ColorectalCancerScreeningCDS/ColorectalCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST https://cloud.alphora.com/sandbox/r4/cds/fhir
 
 > NOTE: If you get an error about "HSEARCH" not working, that is a known issue with indexing in the HAPI FHIR Server. Just re-run the command and it should work the second time. We're working on it.
 
@@ -136,7 +136,7 @@ http://sandbox.cds-hooks.org/
 
 In the upper right-hand corner of the page, click the settings gear to bring down the settings menu and select `Change FHIR Server`. In the dialog that is displayed, Enter the URL for the CDS Sandbox FHIR server:
 
-https://cds-sandbox.alphora.com/cqf-ruler-r4/fhir
+https://cloud.alphora.com/sandbox/r4/fhir
 
 and then click Next. In the patient dialog that comes up, enter the Patient ID:
 
@@ -146,7 +146,7 @@ and then click Next.
 
 To configure the sandbox to call the ColorectalCancerScreeningCDS service, click the settings gear again and select `Add CDS Service`. In the dialog that is displayed, enter the URL for the CDS Sandbox Discovery endpoint:
 
-https://cds-sandbox.alphora.com/cqf-ruler-r4/cds-services
+https://cloud.alphora.com/sandbox/r4/cds/cds-services
 
 and then click Next. The CDS Hooks sandbox will then call that service with the should-screen-ccs patient, and return the recommendation. To see the request/response, click the Select a Service drop down in the CDS Developer panel and select ColorectalCancerScreeningCDS. This will display the actual CDS Hooks request that was sent, and the CDS Hooks response that came back.
 
@@ -154,11 +154,11 @@ and then click Next. The CDS Hooks sandbox will then call that service with the 
 
 To run the quality measure, post the quality measure bundle to the CQM sandbox with the following command:
 
-    curl -d "@bundles/measure/ColorectalCancerScreeningCQM/ColorectalCancerScreeningCQM-bundle.json" -H "Content-Type: application/json" -X POST https://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir
+    curl -d "@bundles/measure/ColorectalCancerScreeningCQM/ColorectalCancerScreeningCQM-bundle.json" -H "Content-Type: application/json" -X POST https://cloud.alphora.com/sandbox/r4/cqm/fhir
 
 As with the decision support bundle, this bundle contains all the files necessary to evaluate the measure, including test data. To run the measure, use the [$evaluate-measure](https://hl7.org/fhir/measure-operation-evaluate-measure.html) operation:
 
-    curl 'https://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/Measure/ColorectalCancerScreeningCQM/$evaluate-measure?patient=denom-EXM130&periodStart=2019-01-01&periodEnd=2019-12-31' -H "Content-Type: application/json"
+    curl 'https://cloud.alphora.com/sandbox/r4/cqm/fhir/Measure/ColorectalCancerScreeningCQM/$evaluate-measure?patient=denom-EXM130&periodStart=2022-01-01&periodEnd=2022-12-31' -H "Content-Type: application/json"
 
 
 ## Updating the Content
