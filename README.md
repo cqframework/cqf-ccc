@@ -10,6 +10,7 @@ approaches, with the goal of illustrating how shareable libraries of clinical kn
 can be used in various domains including quality measurement, decision support, case-reporting,
 and others.
 
+
 ## Walkthrough
 
 For a complete walkthrough of building, and modifying this artifact library, refer to the [Walkthrough](WALKTHROUGH.md) page.
