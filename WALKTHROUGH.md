@@ -136,7 +136,7 @@ http://sandbox.cds-hooks.org/
 
 In the upper right-hand corner of the page, click the settings gear to bring down the settings menu and select `Change FHIR Server`. In the dialog that is displayed, Enter the URL for the CDS Sandbox FHIR server:
 
-https://cloud.alphora.com/sandbox/r4/fhir
+https://cloud.alphora.com/sandbox/r4/cds/fhir
 
 and then click Next. In the patient dialog that comes up, enter the Patient ID:
 
