@@ -1,6 +1,6 @@
 {
   "resourceType": "Patient",
-  "id": "numer-EXM130",
+  "id": "should-screen-ccs",
   "meta": {
       "profile": [
         "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -52,12 +52,12 @@
     ],
     "name": [
       {
-        "family": "Blitz",
+        "family": "Dere",
         "given": [
-          "Don"
+          "Ben"
         ]
       }
     ],
-  "birthDate": "1968-01-01",
-  "gender": "male"
-}
+    "birthDate": "1968-01-01",
+    "gender": "male"
+  }

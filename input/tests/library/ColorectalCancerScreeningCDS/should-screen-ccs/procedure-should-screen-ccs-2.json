@@ -1,6 +1,6 @@
 {
     "resourceType": "Procedure",
-    "id": "denom-EXM130-2",
+    "id": "should-screen-ccs-2",
     "meta": {
         "profile": [
           "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
@@ -17,7 +17,7 @@
         ]
     },
     "subject": {
-        "reference": "Patient/denom-EXM130"
+        "reference": "Patient/should-screen-ccs"
     },
     "performedPeriod": {
         "start": "2011-12-30T12:00:00",
