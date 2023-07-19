@@ -5,7 +5,7 @@
 <!--  <extension url="http://hl7.org/fhir/tools/StructureDefinition/igpublisher-spreadsheet">
     <valueString value="resources-spreadsheet.xml"/>
   </extension>-->
-  <url value="http://fhir.org/guides/cqf/ccc/ImplementationGuide/cqf.fhir.ccc"/>
+  <url value="http://fhir.org/guides/cqf/ccc/ImplementationGuide/fhir.cqf.ccc"/>
   <!-- This version will propagate to all artifacts unless the "propagate-version" extension is overridden -->
   <version value="0.1.0"/>
   <name value="CCC"/>
@@ -59,6 +59,21 @@
       <page>
         <nameUrl value="index.html"/>
         <title value="Colorectal Cancer Concepts Home Page"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="background1.html"/>
+        <title value="Background Page 1"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="background2.html"/>
+        <title value="Background Page 2"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="spec.html"/>
+        <title value="Specification"/>
         <generation value="html"/>
       </page>
       <page>

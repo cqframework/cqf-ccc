@@ -7,7 +7,10 @@
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="background.html">Background</a>
+        <a href="background1.html">Background 1</a>
+      </li>
+      <li>
+        <a href="background2.html">Background 2</a>
       </li>
     </ul>
   </li>
