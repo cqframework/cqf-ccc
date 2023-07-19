@@ -5,6 +5,7 @@
 	</meta>
 	<name value="ColorectalCancerScreeningCDS"/>
 	<title value="Colorectal Cancer Screening CDS"/>
+	<description value="Colorectal Cancer Screening CDS"/>
 	<type>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
