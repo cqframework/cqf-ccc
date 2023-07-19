@@ -10,6 +10,8 @@
   "url": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningHEDIS",
   "version": "0.1.0",
   "name": "ColorectalCancerScreeningHEDIS",
+  "title": "Colorectal Cancer Screening HEDIS",
+  "description": "Colorectal Cancer Screening HEDIS",
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "FHIR model information",

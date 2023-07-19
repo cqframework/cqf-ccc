@@ -10,6 +10,8 @@
   "url": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts",
   "version": "0.1.0",
   "name": "ColorectalCancerConcepts",
+  "title": "Colorectal Cancer Concepts",
+  "description": "Colorectal Cancer Concepts",
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "Value set Colonoscopy",
