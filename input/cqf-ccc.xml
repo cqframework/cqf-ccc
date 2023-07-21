@@ -56,6 +56,15 @@
       <description value="A simple example showing use of a dependency library from an implementation guide dependency"/>
     </resource>
     -->
+    <resource>
+      <reference>
+        <reference value="Device/cqf-tooling" />
+        <display value="CQF Tooling Device" />
+      </reference>
+      <name value="CQFToolingDevice" />
+      <description value="A Device that represents a CQF Tooling version." />
+      <exampleBoolean value="false" />
+    </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>
