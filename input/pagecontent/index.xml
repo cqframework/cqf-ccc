@@ -18,4 +18,11 @@
   <h3>Contents</h3>
   <p>
   </p>
+
+<!-- fragments that need to be included somewhere based on the publisher's qa report-->
+
+  {% include ip-statements.xhtml %}
+  {% include cross-version-analysis-inline.xhtml %}
+  {% include dependency-table-short.xhtml %}
+  {% include globals-table.xhtml %}
 </div>
