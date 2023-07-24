@@ -387,7 +387,7 @@
         }, {
           "path": "action.extension",
           "expression": {
-            "language": "text/cql.identifier",
+            "language": "text/cql-identifier",
             "expression": "Get Card Indicator"
           }
         } ]
