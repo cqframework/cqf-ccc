@@ -70,7 +70,7 @@
 		<dynamicValue>
 			<path value="action.extension"/>
 			<expression>
-				<language value="text/cql.identifier"/>
+				<language value="text/cql-identifier"/>
 				<expression value="Get Card Indicator"/>
 			</expression>
 		</dynamicValue>
