@@ -5,6 +5,7 @@
 	</meta>
 	<name value="ColorectalCancerScreeningCDS"/>
 	<title value="Colorectal Cancer Screening CDS"/>
+	<description value="Colorectal Cancer Screening CDS"/>
 	<type>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
@@ -15,6 +16,22 @@
 	<status value="draft"/>
 	<experimental value="true"/>
 	<date value="2019-05-15"/>
+	<extension
+             url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="shareable"/>
+  </extension>
+  <extension
+             url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="computable"/>
+  </extension>
+  <extension
+             url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="executable"/>
+  </extension>
+  <extension
+             url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="publishable"/>
+  </extension>
 	<library value="http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCDS"/>
 	<action>
 		<title value="Colorectal Cancer Screening"/>
@@ -53,7 +70,7 @@
 		<dynamicValue>
 			<path value="action.extension"/>
 			<expression>
-				<language value="text/cql.identifier"/>
+				<language value="text/cql-identifier"/>
 				<expression value="Get Card Indicator"/>
 			</expression>
 		</dynamicValue>
