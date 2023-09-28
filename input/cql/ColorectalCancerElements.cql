@@ -22,6 +22,9 @@ context Patient
 define AsOf:
   end of "Measurement Period"
 
+/*
+@description: Completed Flexible Sigmoidoscopy Procedures
+*/
 define "Flexible Sigmoidoscopy Performed":
   [Procedure: Cx."Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
