@@ -122,7 +122,7 @@ The result of the publisher step will create the Artifact Library as a FHIR Impl
 
 ## Running the Decision Support
 
-To run the decision support, we load the [ColorectalCancerScreeningCDS](bundles/plandefinition/ColorectalCancerScreeningCDS-bundle.json) bundle, which contains all the resources for the recommendation (including the test case data) into the Clinical Reasoning server:
+To run the decision support, we load the [ColorectalCancerScreeningCDS](bundles/measure/ColorectalCancerScreeningCQM/ColorectalCancerScreeningCQM-bundle.json) bundle, which contains all the resources for the recommendation (including the test case data) into the Clinical Reasoning server:
 
     curl -d "@bundles/plandefinition/ColorectalCancerScreeningCDS/ColorectalCancerScreeningCDS-bundle.json" -H "Content-Type: application/json" -X POST https://cloud.alphora.com/sandbox/r4/cds/fhir
 
