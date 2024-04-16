@@ -2,11 +2,11 @@
 
 # This is inherited from the base resource
 WARNING: StructureDefinition/myObservation: StructureDefinition.snapshot.element[15].mapping[3].map: value should not start or finish with whitespace
+ERROR: output​/Library-ColorectalCancerElements​.html​#​/html​/body​/div​/div​/div​/div​/div​/div​/table​/tr​/td​/ul​/li​/a at Line 394, column 22: The link 'http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1' for "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1" cannot be resolved
+ERROR: output​/Library-ColorectalCancerElements​.html​#​/html​/body​/div​/div​/div​/div​/div​/div​/table​/tr​/td​/ul​/li​/a at Line 396, column 22: The link 'http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1' for "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1" cannot be resolved
 
 # We're expecting these to not match the slice - we're showing how you can use slicing to define the one repetition you want even when many repetitions might be present
-INFORMATION: Patient/example: Patient.name[0]: This element does not match any known slice for the profile http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient
-INFORMATION: Patient/example: Patient.name[1]: This element does not match any known slice for the profile http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient
+
 
 # If this was a real IG, there should be examples for these profiles too.  But it's not, and I'm lazy...
-WARNING: http://somewhere.org/fhir/uv/myig/StructureDefinition/myObservation: The Implementation Guide contains no examples for this profile
-WARNING: http://somewhere.org/fhir/uv/myig/StructureDefinition/mypractitioner: The Implementation Guide contains no examples for this profile
+

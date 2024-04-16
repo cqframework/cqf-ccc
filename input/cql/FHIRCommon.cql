@@ -9,7 +9,7 @@ using FHIR version '4.0.1'
 include FHIRHelpers version '4.0.1'
 
 codesystem "LOINC": 'http://loinc.org'
-codesystem "SNOMEDCT": 'http://snomed.info/sct'
+codesystem "SNOMEDCT": 'http://snomed.info/sct' version '3.2.1'
 codesystem "RoleCode": 'http://terminology.hl7.org/CodeSystem/v3-RoleCode'
 codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-role'
 codesystem "RequestIntent": 'http://hl7.org/fhir/request-intent'
