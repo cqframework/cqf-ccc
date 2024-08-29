@@ -68,7 +68,7 @@
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
-			<path value="action.extension"/>
+			<path value="action.priority"/>
 			<expression>
 				<language value="text/cql-identifier"/>
 				<expression value="Get Card Indicator"/>
