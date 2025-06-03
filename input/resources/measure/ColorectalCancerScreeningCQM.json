@@ -18,7 +18,7 @@
         "valueString": "Fecal Occult Blood Test Result"
       }, {
         "url": "statement",
-        "valueString": "define \"Fecal Occult Blood Test Result\":\n  [Observation: Cx.\"Fecal Occult Blood Test (FOBT)\"] FecalOccultResult\n\t\twhere FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FecalOccultResult.value is not null"
+        "valueString": "define \"Fecal Occult Blood Test Result\":\n\n  [Observation: Concepts.\"Fecal Occult Blood Test (FOBT)\"] \n  \n  FecalOccultResult\n\t\twhere FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FecalOccultResult.value is not null"
       }, {
         "url": "displaySequence",
         "valueInteger": 0
@@ -63,7 +63,7 @@
         "valueString": "Fecal Immunochemical Test DNA Result"
       }, {
         "url": "statement",
-        "valueString": "define \"Fecal Immunochemical Test DNA Result\":\n  [Observation: Cx.\"FIT DNA\"] FitDNA\n\t\twhere FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FitDNA.value is not null"
+        "valueString": "define \"Fecal Immunochemical Test DNA Result\":\n  [Observation: Concepts.\"FIT DNA\"] FitDNA\n\t\twhere FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FitDNA.value is not null"
       }, {
         "url": "displaySequence",
         "valueInteger": 3
@@ -93,7 +93,7 @@
         "valueString": "CT Colonography Performed"
       }, {
         "url": "statement",
-        "valueString": "define \"CT Colonography Performed\":\n  [Procedure: Cx.\"CT Colonography\"] Colonography\n    where Colonography.status = 'completed'"
+        "valueString": "define \"CT Colonography Performed\":\n  [Procedure: Concepts.\"CT Colonography\"] Colonography\n    where Colonography.status = 'completed'"
       }, {
         "url": "displaySequence",
         "valueInteger": 5
@@ -108,7 +108,7 @@
         "valueString": "CT Colonography Performed Within 5 Years"
       }, {
         "url": "statement",
-        "valueString": "define \"CT Colonography Performed Within 5 Years\":\n  \"CT Colonography Performed\" P\n    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf"
+        "valueString": "define \"CT Colonography Performed Within 5 Years\":\n  \"CT Colonography Performed\" P\n    where P.performed.toInterval() ends 5 years or less on or before AsOf"
       }, {
         "url": "displaySequence",
         "valueInteger": 6
@@ -123,7 +123,7 @@
         "valueString": "Flexible Sigmoidoscopy Performed"
       }, {
         "url": "statement",
-        "valueString": "/*\n@description: Completed Flexible Sigmoidoscopy Procedures\n*/\ndefine \"Flexible Sigmoidoscopy Performed\":\n  [Procedure: Cx.\"Flexible Sigmoidoscopy\"] FlexibleSigmoidoscopy\n\t\twhere FlexibleSigmoidoscopy.status = 'completed'"
+        "valueString": "/*\n@description: Completed Flexible Sigmoidoscopy Procedures\n*/\ndefine \"Flexible Sigmoidoscopy Performed\":\n  [Procedure: Concepts.\"Flexible Sigmoidoscopy\"] FlexibleSigmoidoscopy\n\t\twhere FlexibleSigmoidoscopy.status = 'completed'"
       }, {
         "url": "displaySequence",
         "valueInteger": 7
@@ -138,7 +138,7 @@
         "valueString": "Flexible Sigmoidoscopy Performed Within 5 Years"
       }, {
         "url": "statement",
-        "valueString": "define \"Flexible Sigmoidoscopy Performed Within 5 Years\":\n  \"Flexible Sigmoidoscopy Performed\" P\n    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf"
+        "valueString": "define \"Flexible Sigmoidoscopy Performed Within 5 Years\":\n  \"Flexible Sigmoidoscopy Performed\" P\n    where P.performed.toInterval() ends 5 years or less on or before AsOf"
       }, {
         "url": "displaySequence",
         "valueInteger": 8
@@ -153,7 +153,7 @@
         "valueString": "Colonoscopy Performed"
       }, {
         "url": "statement",
-        "valueString": "define \"Colonoscopy Performed\":\n  [Procedure: Cx.\"Colonoscopy\"] Colonoscopy\n\t\twhere Colonoscopy.status = 'completed'"
+        "valueString": "define \"Colonoscopy Performed\":\n  [Procedure: Concepts.\"Colonoscopy\"] Colonoscopy\n\t\twhere Colonoscopy.status = 'completed'"
       }, {
         "url": "displaySequence",
         "valueInteger": 9
@@ -168,7 +168,7 @@
         "valueString": "Colonoscopy Performed Within 10 Years"
       }, {
         "url": "statement",
-        "valueString": "define \"Colonoscopy Performed Within 10 Years\":\n  \"Colonoscopy Performed\" P\n    where FC.ToInterval(P.performed) ends 10 years or less on or before AsOf"
+        "valueString": "define \"Colonoscopy Performed Within 10 Years\":\n  \"Colonoscopy Performed\" P\n    where P.performed.toInterval() ends 10 years or less on or before AsOf"
       }, {
         "url": "displaySequence",
         "valueInteger": 10
@@ -183,7 +183,7 @@
         "valueString": "Has Appropriate Colorectal Cancer Screening"
       }, {
         "url": "statement",
-        "valueString": "/*\n  FOBT within 1 year\n    or FIT DNA within 3 years\n    or CT Colonography within 5 years\n    or Flexible Sigmoidoscopy within 5 years\n    or Colonoscopy within 10 years\n*/\ndefine \"Has Appropriate Colorectal Cancer Screening\":\n  exists \"Fecal Occult Blood Test Result Within 1 Year\"\n    or exists \"Fecal Immunochemical Test DNA Result Within 3 Years\"\n    or exists \"CT Colonography Performed Within 5 Years\"\n    or exists \"Flexible Sigmoidoscopy Performed Within 5 Years\"\n    or exists \"Colonoscopy Performed Within 10 Years\""
+        "valueString": "define \"Has Appropriate Colorectal Cancer Screening\":\n  exists \"Fecal Occult Blood Test Result Within 1 Year\"\n    or exists \"Fecal Immunochemical Test DNA Result Within 3 Years\"\n    or exists \"CT Colonography Performed Within 5 Years\"\n    or exists \"Flexible Sigmoidoscopy Performed Within 5 Years\"\n    or exists \"Colonoscopy Performed Within 10 Years\""
       }, {
         "url": "displaySequence",
         "valueInteger": 11
@@ -198,7 +198,7 @@
         "valueString": "Numerator"
       }, {
         "url": "statement",
-        "valueString": "define \"Numerator\":\n  CCE.\"Has Appropriate Colorectal Cancer Screening\""
+        "valueString": "define \"Numerator\":\n  Elements.\"Has Appropriate Colorectal Cancer Screening\""
       }, {
         "url": "displaySequence",
         "valueInteger": 12
@@ -213,7 +213,7 @@
         "valueString": "Initial Population"
       }, {
         "url": "statement",
-        "valueString": "/*\nNOTE: Removed qualifying encounters criteria to simplify for demonstration purposes\n*/\ndefine \"Initial Population\":\n  AgeInYearsAt(start of \"Measurement Period\") in Interval[50, 75]"
+        "valueString": "define \"Initial Population\":\n  AgeInYearsAt(start of \"Measurement Period\") in Interval[50, 75]"
       }, {
         "url": "displaySequence",
         "valueInteger": 13
@@ -243,11 +243,11 @@
     },
     "relatedArtifact": [ {
       "type": "depends-on",
-      "display": "Library CCE",
+      "display": "Library Elements",
       "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerElements"
     }, {
       "type": "depends-on",
-      "display": "Library Cx",
+      "display": "Library Concepts",
       "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts"
     }, {
       "type": "depends-on",
@@ -255,8 +255,8 @@
       "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
-      "display": "Library FC",
-      "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1"
+      "display": "Library Common",
+      "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerCommon"
     }, {
       "type": "depends-on",
       "display": "Value set Fecal Occult Blood Test (FOBT)",
@@ -369,7 +369,7 @@
   "title": "Colorectal Cancer Screening CQM",
   "status": "draft",
   "experimental": true,
-  "date": "2024-05-14T12:25:12-06:00",
+  "date": "2025-06-03T15:35:07-06:00",
   "publisher": "National Committee for Quality Assurance",
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer",
   "purpose": "Illustration",

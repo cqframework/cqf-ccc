@@ -3,27 +3,17 @@ library ColorectalCancerScreeningCDS version '0.1.0'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include FHIRCommon version '4.0.1' called FC
 
-include ColorectalCancerElements called CCE
-
-// QUESTION: Should this be a single timepoint, or is a period required?
-//parameter AsOf DateTime default Now()
-
-/*
-NOTE: Introduced Measurement Period as the parameter here for demonstration purposes
-so it will run on the current implementations.
-*/
-parameter "Measurement Period" Interval<DateTime>
-  default Interval[Now() - 1 year, Now()]
+include ColorectalCancerCommon called Common
+include ColorectalCancerElements called Elements
 
 context Patient
 
 define "Is Recommendation Applicable":
-  AgeInYearsAt(start of "Measurement Period") between 50 and 75
-    and not CCE."Has Appropriate Colorectal Cancer Screening"
-    and not CCE."Has Active Malignant Neoplasm"
-    and not exists (CCE."Total Colectomy Performed")
+  AgeInYears() between 50 and 75
+    and not Elements."Has Appropriate Colorectal Cancer Screening"
+    and not Elements."Has Active Malignant Neoplasm"
+    and not exists (Elements."Total Colectomy Performed")
 
 define "Get Card Summary":
   if "Is Recommendation Applicable" then
@@ -39,11 +29,11 @@ define "Get Card Detail":
 
 define "Rationale":
   Coalesce({
-    'most recent FOBT issued on ' + ToString(date from CCE."Most Recent Fecal Occult Blood Test Result".issued),
-    'most recent FIT DNA issued on ' + ToString(date from CCE."Most Recent Fecal Immunochemical Test DNA Result".issued),
-    'most recent CT Colonography performed on ' + ToString(date from start of FC.ToInterval(CCE."Most Recent CT Colonography Performed".performed)),
-    'most recent Flexible Sigmoidoscopy performed on ' + ToString(date from start of FC.ToInterval(CCE."Most Recent Flexible Sigmoidoscopy Performed".performed)),
-    'most recent Colonoscopy performed on ' + ToString(date from start of FC.ToInterval(CCE."Most Recent Colonoscopy Performed".performed)),
+    'most recent FOBT issued on ' + ToString(date from Elements."Most Recent Fecal Occult Blood Test Result".issued),
+    'most recent FIT DNA issued on ' + ToString(date from Elements."Most Recent Fecal Immunochemical Test DNA Result".issued),
+    'most recent CT Colonography performed on ' + ToString(date from start of Elements."Most Recent CT Colonography Performed".performed.toInterval()),
+    'most recent Flexible Sigmoidoscopy performed on ' + ToString(date from start of Elements."Most Recent Flexible Sigmoidoscopy Performed".performed.toInterval()),
+    'most recent Colonoscopy performed on ' + ToString(date from start of Elements."Most Recent Colonoscopy Performed".performed.toInterval()),
     'no evidence of appropriate screening'
   })
 

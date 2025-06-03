@@ -27,7 +27,7 @@
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-rationale",
-          "valueMarkdown": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2012-01-01"
+          "valueMarkdown": "Patient has appropriate colorectal cancer screening: most recent Colonoscopy performed on 2017-01-01"
         }
       ],
       "status": "draft",
