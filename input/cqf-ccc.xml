@@ -32,17 +32,22 @@
   <dependsOn id="cpg">
     <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"/>
     <packageId value="hl7.fhir.uv.cpg"/>
-    <version value="1.0.0"/>
+    <version value="2.0.0"/>
   </dependsOn>
-  <dependsOn id="cqf">
+  <dependsOn id="cqlig">
+    <uri value="http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.cql"/>
+    <packageId value="hl7.fhir.uv.cql"/>
+    <version value="dev"/>
+  </dependsOn>
+  <!--dependsOn id="cqf">
     <uri value="http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common"/>
     <packageId value="fhir.cqf.common"/>
     <version value="4.0.1"/>
-  </dependsOn>
+  </dependsOn-->
   <dependsOn id="measures">
     <uri value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures"/>
     <packageId value="hl7.fhir.us.cqfmeasures"/>
-    <version value="3.0.0"/>
+    <version value="5.0.0"/>
   </dependsOn>
   <definition>
     <!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's

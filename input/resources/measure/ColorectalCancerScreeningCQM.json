@@ -18,7 +18,7 @@
         "valueString": "Fecal Occult Blood Test Result"
       }, {
         "url": "statement",
-        "valueString": "define \"Fecal Occult Blood Test Result\":\n\n  [Observation: Concepts.\"Fecal Occult Blood Test (FOBT)\"] \n  \n  FecalOccultResult\n\t\twhere FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FecalOccultResult.value is not null"
+        "valueString": "define \"Fecal Occult Blood Test Result\":\n  [Observation: Concepts.\"Fecal Occult Blood Test (FOBT)\"] FecalOccultResult\n\t\twhere FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FecalOccultResult.value is not null"
       }, {
         "url": "displaySequence",
         "valueInteger": 0
@@ -255,8 +255,8 @@
       "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
-      "display": "Library Common",
-      "resource": "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerCommon"
+      "display": "Library FHIRCommon",
+      "resource": "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|2.0.0"
     }, {
       "type": "depends-on",
       "display": "Value set Fecal Occult Blood Test (FOBT)",
@@ -369,7 +369,7 @@
   "title": "Colorectal Cancer Screening CQM",
   "status": "draft",
   "experimental": true,
-  "date": "2025-06-03T15:35:07-06:00",
+  "date": "2025-06-03T16:34:26-06:00",
   "publisher": "National Committee for Quality Assurance",
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer",
   "purpose": "Illustration",

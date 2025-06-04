@@ -2,9 +2,9 @@ library ColorectalCancerScreeningCDS version '0.1.0'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.1'
+include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
+include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
 
-include ColorectalCancerCommon called Common
 include ColorectalCancerElements called Elements
 
 context Patient

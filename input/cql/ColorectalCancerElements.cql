@@ -3,9 +3,10 @@ library ColorectalCancerElements version '0.1.0'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include FHIRCommon version '4.0.1' called FC
+include FHIRCommon version '2.0.0'
+//include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
+//include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
 
-include ColorectalCancerCommon called Common
 include ColorectalCancerConcepts called Concepts
 
 parameter "Measurement Period" Interval<DateTime>
@@ -28,10 +29,7 @@ define "Fecal Occult Blood Test Result Within 1 Year":
     where R.issued 1 year or less on or before AsOf
 
 define "Fecal Occult Blood Test Result":
-
-  [Observation: Concepts."Fecal Occult Blood Test (FOBT)"] 
-  
-  FecalOccultResult
+  [Observation: Concepts."Fecal Occult Blood Test (FOBT)"] FecalOccultResult
 		where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FecalOccultResult.value is not null
 
@@ -45,8 +43,8 @@ define "Flexible Sigmoidoscopy Performed":
 // NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
 define "Flexible Sigmoidoscopy from Patient History":
   [Condition: Concepts."Flexible Sigmoidoscopy"] FlexibleSigmoidoscopyCondition
-    where FlexibleSigmoidoscopyCondition.clinicalStatus in FC."Active Condition"
-      and FlexibleSigmoidoscopyCondition.verificationStatus ~ FC."confirmed"
+    where FlexibleSigmoidoscopyCondition.isActive()
+      and FlexibleSigmoidoscopyCondition.isConfirmed()
 
 define "CT Colonography Performed":
   [Procedure: Concepts."CT Colonography"] Colonography
@@ -59,8 +57,8 @@ define "Total Colectomy Performed":
 // NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
 define "Total Colectomy from Patient History":
   [Condition: Concepts."Total Colectomy"] ColectomyCondition
-    where ColectomyCondition.clinicalStatus in FC."Active Condition"
-      and ColectomyCondition.verificationStatus ~ FC."confirmed"
+    where ColectomyCondition.isActive()
+      and ColectomyCondition.isConfirmed()
 
 define "Fecal Immunochemical Test DNA Result":
   [Observation: Concepts."FIT DNA"] FitDNA
@@ -74,13 +72,13 @@ define "Colonoscopy Performed":
 // NOTE: HEDIS version allows for a "history of" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
 define "Colonoscopy from Patient History":
   [Condition: Concepts."Colonoscopy"] C
-    where C.clinicalStatus in FC."Active Condition"
-    and C.verificationStatus ~ FC."confirmed"
+    where C.isActive()
+    and C.isConfirmed()
 
 define "Active Malignant Neoplasm":
   [Condition: Concepts."Malignant Neoplasm of Colon"] ColorectalCancer
-    where ColorectalCancer.clinicalStatus in FC."Active Condition"
-      and ColorectalCancer.verificationStatus ~ FC."confirmed"
+    where ColorectalCancer.isActive()
+      and ColorectalCancer.isConfirmed()
 
 define "Most Recent Fecal Occult Blood Test Result":
   MostRecent("Fecal Occult Blood Test Result", AsOf)
